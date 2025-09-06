@@ -238,7 +238,7 @@ class GetPixivToken:
 
     def __wait_for_redirect(self) -> None:
         try:
-            WebDriverWait(self.driver, 20).until(EC.url_matches(f"^{REDIRECT_URI}"))
+            WebDriverWait(self.driver, 600).until(EC.url_matches(f"^{REDIRECT_URI}"))
         except TimeoutException as err:
             self.driver.close()
             msg = "Failed to login. Please check your information or proxy. (Maybe restricted by pixiv?)"
